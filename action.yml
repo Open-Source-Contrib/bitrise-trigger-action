@@ -1,6 +1,9 @@
 # action.yml
 name: 'Bitrise Job Runner'
 description: 'Runs a Bitrise-CI Build upon adding a new label to PR'
+branding:
+  icon: 'bold'  
+  color: 'blue'
 inputs:
   bitrise_ci_token:
     description: 'Token for Bitrise'
