@@ -1,8 +1,8 @@
 # action.yml
-name: 'Run Circle-CI on Label'
-description: 'Runs a Circle-CI Build upon adding a new label to PR'
+name: 'Bitrise Job Runner'
+description: 'Runs a Bitrise-CI Build upon adding a new label to PR'
 inputs:
-  bitrise_ci_token:  # secret token for circle CI Rest API
+  bitrise_ci_token:
     description: 'Token for Bitrise'
     required: true
     default: ''
