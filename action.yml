@@ -2,22 +2,42 @@
 name: 'Run Circle-CI on Label'
 description: 'Runs a Circle-CI Build upon adding a new label to PR'
 inputs:
-  circle_ci_token:  # secret token for circle CI Rest API
-    description: 'Token for Circle-CI'
+  bitrise_ci_token:  # secret token for circle CI Rest API
+    description: 'Token for Bitrise'
     required: true
     default: ''
-  circle_ci_job:
-    description: 'Name of the circle-ci-job'
+  bitrise_ci_slug:
+    description: 'Slug of Bitrise project'
     required: true
     default: ''
-  circle_ci_project_url:
-    description: 'URL for circle-ci project'
+  git_commit_hash:
+    description: 'Commit hash from PR'
+    required: true
+    default: ''
+  git_current_branch:
+    description: 'Current branch of the PR'
+    required: true
+    default: ''
+  git_base_branch:
+    description: 'Base branch of the PR'
+    required: true
+    default: ''
+  bitrise_workflow_name:
+    description: 'Workflow to trigger on Bitrise'
+    required: true
+    default: ''
+  git_pr_number:
+    description: 'Pull request number'
     required: true
     default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.circle_ci_token }}
-    - ${{ inputs.circle_ci_job }}
-    - ${{ inputs.circle_ci_project_url }}
+    - ${{ inputs.bitrise_ci_token }}
+    - ${{ inputs.bitrise_ci_slug }}
+    - ${{ inputs.git_commit_hash }}
+    - ${{ inputs.git_current_branch }}
+    - ${{ inputs.git_base_branch }}
+    - ${{ inputs.bitrise_workflow_name }}
+    - ${{ inputs.git_pr_number }}
